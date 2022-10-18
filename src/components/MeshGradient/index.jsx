@@ -62,22 +62,24 @@ export default function MeshGradientAnimation(props) {
 
   useEffect(() => {
 
-    const gradient = new MeshGradient();
-    gradient.initGradient("#" + props.id, COLORS);
-    gradient.initMesh()
-    if (colors){
-      gradient.changeGradientColors(colors);
-    }
-    gradient?.changePosition(Math.floor(Math.random() * 1000));
+   
+    // const gradient = new MeshGradient();
+    // gradient.initGradient("#" + props.id, COLORS);
+   
+    // gradient.initMesh()
+    // if (colors){
+    //   gradient.changeGradientColors(colors);
+    // }
+    // gradient?.changePosition(Math.floor(Math.random() * 1000));
 
-    // const gradient = new Gradient();
+    const gradient = new Gradient();
 
-    // gradient.initGradient("#" + props.id);
+    gradient.initGradient("#" + props.id);
     // gradient.seed = Math.floor(Math.random() * 1000);
-    // gradient.play();
-    setImage(canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream"))
+    gradient.play();
+    // setImage(canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream"))
 
-  }, [colors, props.img, props]);
+  }, [colors, props]);
 
   const Container = styled.div`
     position: relative;
@@ -129,7 +131,7 @@ export default function MeshGradientAnimation(props) {
       />
       <section className="content">{props.children}</section>
 
-      <img src={image}/>
+  
     </Container>
   );
 }

@@ -22,7 +22,7 @@ class MiniGl {
 			debug_output =
 				-1 !== document.location.search.toLowerCase().indexOf("debug=webgl");
 		(_miniGl.canvas = canvas),
-			(_miniGl.gl = _miniGl.canvas.getContext("webgl", { antialias: !0 })),
+			(_miniGl.gl = _miniGl.canvas.getContext("webgl", { antialias: !0, premultipliedAlpha: false })),
 			(_miniGl.meshes = []);
 		const context = _miniGl.gl;
 		width && height && this.setSize(width, height),
