@@ -1,6 +1,8 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+
+// @ts-ignore: Unreachable code error
 import MeshGradientAnimation from "./components/MeshGradient";
 
 function App() {
