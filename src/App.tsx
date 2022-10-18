@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <MeshGradientAnimation
+      {/* <MeshGradientAnimation
         blur={90}
         radius={0}
         leftradius={25}
@@ -20,7 +20,12 @@ function App() {
         }
         colors={["123321", "123321", "123321", "ffffff"]}
         id={"mesh-gradient-profile"}
-      />
+      /> */}
+
+      <iframe
+        src="https://generate-mesh-front.vercel.app/?color=123123&color=123123&color=123123&color=ffffff"
+        title="description"
+      ></iframe>
     </div>
   );
 }
