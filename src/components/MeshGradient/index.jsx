@@ -91,8 +91,8 @@ export default function MeshGradientAnimation(props) {
     canvas {
       /* width: 100%;
       height: 100%; */
-      width: 0px;
-      height: 0px;
+      width: 100vw;
+      height: 100vh;
 
       --gradient-color-1: ${Array.isArray(colors)
         ? colors[3]
