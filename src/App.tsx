@@ -1,26 +1,40 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-
-// @ts-ignore: Unreachable code error
-import MeshGradientAnimation from "./components/MeshGradient";
+import MeshGradient from "mesh-gradient.js";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+const COLORS = ["#fff", "#b48168", "#aa6e5b", "#bdb1a6"];
 
 function App() {
-  const [count, setCount] = useState(0);
+  // create instance of Gradient Class
+  const gradient = new MeshGradient();
+  const canvasId = "my-canvas";
+
+  useEffect(() => {
+    const pathname: String = window.location.pathname;
+    console.log(pathname);
+    var colorsFromPath: Array<string> = [];
+    pathname
+      .replaceAll("/index.html", "")
+      .replaceAll("/", "")
+      .split("-")
+      .forEach((color) => colorsFromPath.push(color));
+
+    console.log(colorsFromPath);
+
+    const value = Math.floor(Math.random() * 10000);
+    if (colorsFromPath.length == 4) {
+      gradient.initGradient("#" + canvasId, colorsFromPath);
+    } else {
+      gradient.initGradient("#" + canvasId, COLORS);
+    }
+    gradient?.changePosition(value);
+  }, []);
 
   return (
     <div className="App">
-      <MeshGradientAnimation
-        blur={90}
-        radius={0}
-        leftradius={25}
-        opacity={true}
-        img={
-          "https://firebasestorage.googleapis.com/v0/b/nosso-role.appspot.com/o/public%2Fprofile.png?alt=media&token=af77bec5-a66d-4761-b755-edd3d90e9fb8"
-        }
-        colors={["123321", "123321", "123321", "ffffff"]}
-        id={"mesh-gradient-profile"}
-      />
+      <canvas id={canvasId} width="800" height="600" />
+      <section>
+        <h1>Mesh Gradient</h1>
+      </section>
     </div>
   );
 }
