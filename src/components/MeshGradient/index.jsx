@@ -77,7 +77,7 @@ export default function MeshGradientAnimation(props) {
     // gradient.initGradient("#" + props.id);
     // gradient.seed = Math.floor(Math.random() * 1000);
     // gradient.play();
-    // setImage(canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream"))
+    setImage(canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream"))
 
   }, [colors, props]);
 
@@ -93,8 +93,8 @@ export default function MeshGradientAnimation(props) {
     canvas {
       /* width: 100%;
       height: 100%; */
-      width: 100vw;
-      height: 100vh;
+      width: 10px;
+      height: 10px;
 
       --gradient-color-1: ${Array.isArray(colors)
         ? colors[3]
@@ -130,7 +130,7 @@ export default function MeshGradientAnimation(props) {
         styles={{ borderRadius: props.radius }}
       />
       <section className="content">{props.children}</section>
-
+    <img src={image}/>
   
     </Container>
   );
